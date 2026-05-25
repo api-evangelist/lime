@@ -1,0 +1,102 @@
+aid: lime
+name: Lime
+description: >-
+  Lime is a San Francisco–based shared electric vehicle company that operates
+  e-scooters and e-bikes across more than 280 cities in 30+ countries. Riders
+  unlock and pay for vehicles through the Lime mobile app; cities and transit
+  agencies receive operational data via standardized public feeds. Lime
+  publishes per-city public GBFS (General Bikeshare Feed Specification) 2.2
+  feeds covering system information, station information, station status, free
+  (dockless) bike status, and vehicle types under the Lime Public GBFS Terms.
+  Lime also publishes MDS Extensions on GitHub — an open-source aggregation
+  layer that sits on top of the MDS Provider standard for sharing
+  k-anonymized operational data with regulators. There is no public,
+  commercially licensable rider/booking API; the rider-facing endpoints at
+  web-production.lime.bike are private to the Lime app. Integrations with
+  trip-planning surfaces (Google Maps, Uber, Moovit, Citymapper) and city
+  permit dashboards are delivered through the GBFS and MDS feeds.
+type: Index
+position: Provider
+access: 3rd-Party
+image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Shared Mobility
+  - Micromobility
+  - Electric Scooters
+  - Electric Bikes
+  - E-Bikes
+  - E-Scooters
+  - Transportation
+  - Urban Mobility
+  - GBFS
+  - MDS
+  - Smart Cities
+  - Transit
+url: https://raw.githubusercontent.com/api-evangelist/lime/refs/heads/main/apis.yml
+created: '2026-05-25'
+modified: '2026-05-25'
+specificationVersion: '0.20'
+apis:
+  - aid: lime:lime-gbfs
+    name: Lime GBFS Public Feed
+    description: >-
+      Public GBFS 2.2 feed exposing the real-time location, vehicle type,
+      battery level, and rental URLs for Lime's free-floating e-scooters and
+      e-bikes per operating city. Each city system has its own auto-discovery
+      endpoint at /api/partners/v2/gbfs/{city}/gbfs.json, which lists the
+      sub-feeds — system_information, station_information, station_status,
+      free_bike_status, and vehicle_types. Use is governed by the Lime Public
+      GBFS Terms. 46+ city systems are registered in the MobilityData GBFS
+      index, including Paris, London, Berlin, Hamburg, Rome, Madrid, Vienna,
+      Tel Aviv, Calgary, Ottawa, Vancouver, Atlanta, Arlington, and others.
+    humanURL: https://www.li.me/legal/public-gbfs-terms
+    tags:
+      - GBFS
+      - Shared Mobility
+      - Micromobility
+      - Real Time
+    properties:
+      - type: Documentation
+        url: https://www.li.me/legal/public-gbfs-terms
+      - type: Documentation
+        url: https://github.com/MobilityData/gbfs/blob/master/gbfs.md
+      - type: OpenAPI
+        url: openapi/lime-gbfs-openapi.yml
+      - type: Discovery
+        url: https://data.lime.bike/api/partners/v2/gbfs/paris/gbfs.json
+common:
+  - type: Website
+    url: https://www.li.me
+  - type: About
+    url: https://www.li.me/about
+  - type: Newsroom
+    url: https://www.li.me/newsroom
+  - type: Careers
+    url: https://www.li.me/careers
+  - type: Contact
+    url: https://www.li.me/contact-us
+  - type: Support
+    url: https://help.li.me
+  - type: TermsOfService
+    url: https://www.li.me/legal/user-agreement
+  - type: PrivacyPolicy
+    url: https://www.li.me/legal/privacy-policy
+  - type: GBFSTerms
+    url: https://www.li.me/legal/public-gbfs-terms
+  - type: Sustainability
+    url: https://www.li.me/sustainability
+  - type: Safety
+    url: https://www.li.me/safety
+  - type: GitHubOrganization
+    url: https://github.com/limebike
+  - type: DataSharing
+    url: https://github.com/limebike/data-sharing
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/limebike
+  - type: Twitter
+    url: https://twitter.com/limebike
+  - type: Instagram
+    url: https://www.instagram.com/li.me
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
