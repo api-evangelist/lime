@@ -1,0 +1,76 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Lime GBFS Public Feed",
+    "version": "2.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Get GBFS Discovery Document",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://data.lime.bike/api/partners/v2/gbfs/{city}/gbfs.json"
+      },
+      "docs": "Auto-discovery file listing the URLs of all sub-feeds available for this city system."
+    },
+    {
+      "info": {
+        "name": "Get System Information",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://data.lime.bike/api/partners/v2/gbfs/{city}/system_information"
+      },
+      "docs": "Operator and system metadata — name, timezone, language, license URL."
+    },
+    {
+      "info": {
+        "name": "Get Vehicle Types",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://data.lime.bike/api/partners/v2/gbfs/{city}/vehicle_types"
+      },
+      "docs": "Catalog of vehicle types available in the system (form factor, propulsion type, max range)."
+    },
+    {
+      "info": {
+        "name": "Get Station Information",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://data.lime.bike/api/partners/v2/gbfs/{city}/station_information"
+      },
+      "docs": "Static information about stations / virtual parking zones, if any."
+    },
+    {
+      "info": {
+        "name": "Get Station Status",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://data.lime.bike/api/partners/v2/gbfs/{city}/station_status"
+      },
+      "docs": "Live availability of vehicles and docks at each station."
+    },
+    {
+      "info": {
+        "name": "Get Free Bike Status",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://data.lime.bike/api/partners/v2/gbfs/{city}/free_bike_status"
+      },
+      "docs": "Real-time location and availability of free-floating (dockless) vehicles, including rental URLs."
+    }
+  ],
+  "bundled": true
+}

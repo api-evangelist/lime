@@ -1,0 +1,574 @@
+{
+  "item": [
+    {
+      "id": "2db1b489-ce98-4be0-826e-28399881f248",
+      "name": "Discovery",
+      "description": {
+        "content": "GBFS auto-discovery endpoint.",
+        "type": "text/plain"
+      },
+      "item": [],
+      "event": []
+    },
+    {
+      "id": "0941a67a-66ef-4841-8c85-725186562599",
+      "name": "System",
+      "description": {
+        "content": "Operator and system metadata.",
+        "type": "text/plain"
+      },
+      "item": [],
+      "event": []
+    },
+    {
+      "id": "91d755ab-96fa-4400-a318-15d2cf123e1e",
+      "name": "Vehicles",
+      "description": {
+        "content": "Real-time vehicle inventory and status.",
+        "type": "text/plain"
+      },
+      "item": [],
+      "event": []
+    },
+    {
+      "id": "d8b5d9ad-d417-4291-9942-d6a7f3e513d9",
+      "name": "Stations",
+      "description": {
+        "content": "Station information and status (where applicable).",
+        "type": "text/plain"
+      },
+      "item": [],
+      "event": []
+    },
+    {
+      "id": "02c2a747-d716-491d-863b-3bfc6061d602",
+      "name": "Get GBFS Discovery Document",
+      "request": {
+        "name": "Get GBFS Discovery Document",
+        "description": {
+          "content": "Auto-discovery file listing the URLs of all sub-feeds available for this city system.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "gbfs.json"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "description": "City slug (e.g. paris, london, berlin, hamburg, rome, atlanta, calgary, ottawa).",
+              "type": "any",
+              "value": "{{city}}",
+              "key": "city"
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "d3aaccb4-df4b-49b7-aafb-bbf3973389e4",
+          "name": "GBFS discovery document.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "gbfs.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "City slug (e.g. paris, london, berlin, hamburg, rome, atlanta, calgary, ottawa).",
+                  "type": "any",
+                  "value": "{{city}}",
+                  "key": "city"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"last_updated\": 1097,\n  \"ttl\": 6595,\n  \"version\": \"2.2\",\n  \"data\": {\n    \"key_0\": {\n      \"feeds\": [\n        {\n          \"name\": \"free_bike_status\",\n          \"url\": \"http://LdySdqgAZrxmYoGbbjUN.nvdOQPuwkE8OOzrHrE2UOCvP,AEJ0ygHp3aS\"\n        },\n        {\n          \"name\": \"free_bike_status\",\n          \"url\": \"https://EMRuUFkemheREd.baghyo-GifzlMtL7,6WXs1NVrWOJ2.z52iUre6gA5VoYoYI9F8\"\n        }\n      ]\n    },\n    \"key_1\": {\n      \"feeds\": [\n        {\n          \"name\": \"free_bike_status\",\n          \"url\": \"http://CeHvvaOW.eovrKX4Ub6Kj4aK2r25EWI8Ny\"\n        },\n        {\n          \"name\": \"free_bike_status\",\n          \"url\": \"https://ps.cklO.m\"\n        }\n      ]\n    }\n  }\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "911167ec-b49f-485f-9012-6f15cb23e5dc",
+      "name": "Get System Information",
+      "request": {
+        "name": "Get System Information",
+        "description": {
+          "content": "Operator and system metadata — name, timezone, language, license URL.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "system_information"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "description": "City slug (e.g. paris, london, berlin, hamburg, rome, atlanta, calgary, ottawa).",
+              "type": "any",
+              "value": "{{city}}",
+              "key": "city"
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "a8856fbc-7ae6-41e9-8efa-4ea8c3eca4c2",
+          "name": "System information feed.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "system_information"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "City slug (e.g. paris, london, berlin, hamburg, rome, atlanta, calgary, ottawa).",
+                  "type": "any",
+                  "value": "{{city}}",
+                  "key": "city"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"last_updated\": 5564,\n  \"ttl\": 138,\n  \"version\": \"2.2\",\n  \"data\": {\n    \"system_id\": \"lime_paris\",\n    \"language\": \"en\",\n    \"name\": \"Lime Paris\",\n    \"timezone\": \"Europe/Paris\",\n    \"license_url\": \"https://rFVITGsFKEksrA.uzhtTgIIMaWPSfA5lHHq63Vv4dblUJ+qZpuC\",\n    \"attribution_organization_name\": \"Lime\"\n  }\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "e9ffda61-e54d-4362-8412-ca53d466d8fb",
+      "name": "Get Vehicle Types",
+      "request": {
+        "name": "Get Vehicle Types",
+        "description": {
+          "content": "Catalog of vehicle types available in the system (form factor, propulsion type, max range).",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "vehicle_types"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "description": "City slug (e.g. paris, london, berlin, hamburg, rome, atlanta, calgary, ottawa).",
+              "type": "any",
+              "value": "{{city}}",
+              "key": "city"
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "635e3016-6d13-49e0-b1ee-3cc302459e42",
+          "name": "Vehicle types feed.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "vehicle_types"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "City slug (e.g. paris, london, berlin, hamburg, rome, atlanta, calgary, ottawa).",
+                  "type": "any",
+                  "value": "{{city}}",
+                  "key": "city"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"last_updated\": 9609,\n  \"ttl\": 5642,\n  \"version\": \"2.2\",\n  \"data\": {\n    \"vehicle_types\": [\n      {\n        \"vehicle_type_id\": \"string\",\n        \"form_factor\": \"other\",\n        \"propulsion_type\": \"combustion\",\n        \"max_range_meters\": 7001.985349448232\n      },\n      {\n        \"vehicle_type_id\": \"string\",\n        \"form_factor\": \"car\",\n        \"propulsion_type\": \"electric\",\n        \"max_range_meters\": 6738.5698479324055\n      }\n    ]\n  }\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "97c06eec-d2ac-470b-9945-9d31abbb5363",
+      "name": "Get Station Information",
+      "request": {
+        "name": "Get Station Information",
+        "description": {
+          "content": "Static information about stations / virtual parking zones, if any.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "station_information"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "description": "City slug (e.g. paris, london, berlin, hamburg, rome, atlanta, calgary, ottawa).",
+              "type": "any",
+              "value": "{{city}}",
+              "key": "city"
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "c9d096f8-57d9-4236-a6c2-a13a55785b9b",
+          "name": "Station information feed.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "station_information"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "City slug (e.g. paris, london, berlin, hamburg, rome, atlanta, calgary, ottawa).",
+                  "type": "any",
+                  "value": "{{city}}",
+                  "key": "city"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"last_updated\": 4705,\n  \"ttl\": 7316,\n  \"version\": \"2.2\",\n  \"data\": {\n    \"stations\": [\n      {\n        \"station_id\": \"string\",\n        \"name\": \"string\",\n        \"lat\": 5543.338300010519,\n        \"lon\": 1309.3089883212317,\n        \"capacity\": 5114\n      },\n      {\n        \"station_id\": \"string\",\n        \"name\": \"string\",\n        \"lat\": 2854.6888753241697,\n        \"lon\": 6200.613578558,\n        \"capacity\": 9372\n      }\n    ]\n  }\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "f09c8f98-138d-49da-a7ca-35921f2a9ba7",
+      "name": "Get Station Status",
+      "request": {
+        "name": "Get Station Status",
+        "description": {
+          "content": "Live availability of vehicles and docks at each station.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "station_status"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "description": "City slug (e.g. paris, london, berlin, hamburg, rome, atlanta, calgary, ottawa).",
+              "type": "any",
+              "value": "{{city}}",
+              "key": "city"
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "7f4622d4-1757-4be4-a4c4-866c1a441971",
+          "name": "Station status feed.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "station_status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "City slug (e.g. paris, london, berlin, hamburg, rome, atlanta, calgary, ottawa).",
+                  "type": "any",
+                  "value": "{{city}}",
+                  "key": "city"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"last_updated\": 39,\n  \"ttl\": 6391,\n  \"version\": \"2.2\",\n  \"data\": {\n    \"stations\": [\n      {\n        \"station_id\": \"string\",\n        \"num_bikes_available\": 3868,\n        \"is_installed\": false,\n        \"is_renting\": true,\n        \"is_returning\": false,\n        \"last_reported\": 1482,\n        \"num_docks_available\": 6240\n      },\n      {\n        \"station_id\": \"string\",\n        \"num_bikes_available\": 7186,\n        \"is_installed\": true,\n        \"is_renting\": false,\n        \"is_returning\": false,\n        \"last_reported\": 7014,\n        \"num_docks_available\": 9867\n      }\n    ]\n  }\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "e0eb6cb0-293d-499c-b3b9-bc81e95efc27",
+      "name": "Get Free Bike Status",
+      "request": {
+        "name": "Get Free Bike Status",
+        "description": {
+          "content": "Real-time location and availability of free-floating (dockless) vehicles, including rental URLs.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "free_bike_status"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "description": "City slug (e.g. paris, london, berlin, hamburg, rome, atlanta, calgary, ottawa).",
+              "type": "any",
+              "value": "{{city}}",
+              "key": "city"
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "f2a9c775-56d9-49fb-9b1a-f2b352d7c9b0",
+          "name": "Free bike status feed.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "free_bike_status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "City slug (e.g. paris, london, berlin, hamburg, rome, atlanta, calgary, ottawa).",
+                  "type": "any",
+                  "value": "{{city}}",
+                  "key": "city"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"last_updated\": 1430,\n  \"ttl\": 8847,\n  \"version\": \"2.2\",\n  \"data\": {\n    \"bikes\": [\n      {\n        \"bike_id\": \"string\",\n        \"lat\": 5450.649610887915,\n        \"lon\": 4670.291046090539,\n        \"is_reserved\": true,\n        \"is_disabled\": true,\n        \"vehicle_type_id\": \"string\",\n        \"current_range_meters\": 3582.4500251703885,\n        \"rental_uris\": {\n          \"android\": \"https://rJbi.jpdXldQL6oOAduIyeQPLx0KHGfhymkK6BOwpK,vouOoYnUb2131KpjL3aXV8h4tqPz,\",\n          \"ios\": \"https://UoMCHUiAqdBcFhNzoHpIKSxGio.mphzMM4uBhji1JVhX7aa5AIQG7kUACJiMwucGZAfBjpqXzchwELYfsTby-vRn60K7uizWaGgK6nVc.b\",\n          \"web\": \"http://XFhPmDItB.ebna\"\n        }\n      },\n      {\n        \"bike_id\": \"string\",\n        \"lat\": 1465.986402445989,\n        \"lon\": 221.20143912479517,\n        \"is_reserved\": true,\n        \"is_disabled\": true,\n        \"vehicle_type_id\": \"string\",\n        \"current_range_meters\": 4299.539056112538,\n        \"rental_uris\": {\n          \"android\": \"https://PFunbzJsPl.mgj2QmrqOP-mTUALnsoAbRdLAdWPFWW-SHSLKo0UYEkOyAcXmv+e3IPAICg1iNAWl9PQu\",\n          \"ios\": \"http://ahyLmYNwyAHPI.eeOM+3CzPMNJzF.muwkDycZHPyzl8JO4di.lEoJ,Qfb.+.8QQUQ2mv5cXeNHtp\",\n          \"web\": \"http://SqvvFerLjRuuLuvaYNZnmld.uwsaOKlS0H9i5kd\"\n        }\n      }\n    ]\n  }\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "City slug (e.g. paris, london, berlin, hamburg, rome, atlanta, calgary, ottawa).",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "paris",
+      "key": "city"
+    },
+    {
+      "type": "string",
+      "value": "https://data.lime.bike/api/partners/v2/gbfs/{{city}}",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "70515fc9-08a9-41ed-8548-256a3bb04ca0",
+    "name": "Lime GBFS Public Feed",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Lime publishes per-city public GBFS 2.2 feeds describing the real-time\nlocation and status of its free-floating shared e-scooters and e-bikes.\nEach city system has its own auto-discovery endpoint\n(`/api/partners/v2/gbfs/{city}/gbfs.json`) listing the sub-feeds. Use is\ngoverned by the Lime Public GBFS Terms.\n\n\nContact Support:\n Name: Lime Public Affairs",
+      "type": "text/plain"
+    }
+  }
+}
