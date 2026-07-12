@@ -65,6 +65,10 @@ apis:
       - type: Discovery
         url: https://data.lime.bike/api/partners/v2/gbfs/paris/gbfs.json
 common:
+  - type: VulnerabilityDisclosure
+    url: security/lime-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/lime-domain-security.yml
   - type: Website
     url: https://www.li.me
   - type: About
