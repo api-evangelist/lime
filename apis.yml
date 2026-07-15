@@ -65,6 +65,8 @@ apis:
       - type: Discovery
         url: https://data.lime.bike/api/partners/v2/gbfs/paris/gbfs.json
 common:
+  - type: AgenticAccess
+    url: agentic-access/lime-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/lime-vulnerability-disclosure.yml
   - type: DomainSecurity
