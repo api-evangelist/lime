@@ -1,0 +1,91 @@
+openapi: 3.1.0
+info:
+  title: Lime GBFS Public Feed Free Bike Status Gbfs.json API
+  version: '2.2'
+  summary: Public General Bikeshare Feed Specification (GBFS) 2.2 endpoints for Lime shared electric vehicles.
+  description: 'Lime publishes per-city public GBFS 2.2 feeds describing the real-time
+
+    location and status of its free-floating shared e-scooters and e-bikes.
+
+    Each city system has its own auto-discovery endpoint
+
+    (`/api/partners/v2/gbfs/{city}/gbfs.json`) listing the sub-feeds. Use is
+
+    governed by the Lime Public GBFS Terms.
+
+    '
+  termsOfService: https://www.li.me/legal/public-gbfs-terms
+  contact:
+    name: Lime Public Affairs
+    url: https://www.li.me/contact-us
+  license:
+    name: Lime Public GBFS Terms
+    url: https://www.li.me/legal/public-gbfs-terms
+servers:
+- url: https://data.lime.bike/api/partners/v2/gbfs/{city}
+  description: Lime GBFS partner endpoint, scoped per city system.
+  variables:
+    city:
+      default: paris
+      description: City slug (e.g. paris, london, berlin, hamburg, rome, atlanta, calgary, ottawa).
+tags:
+- name: Gbfs.json
+paths:
+  /gbfs.json:
+    get:
+      operationId: getGbfsDiscovery
+      summary: Get GBFS Discovery Document
+      description: Auto-discovery file listing the URLs of all sub-feeds available for this city system.
+      responses:
+        '200':
+          description: GBFS discovery document.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GbfsDiscovery'
+      tags:
+      - Gbfs.json
+components:
+  schemas:
+    GbfsEnvelope:
+      type: object
+      required:
+      - last_updated
+      - ttl
+      - version
+      - data
+      properties:
+        last_updated:
+          type: integer
+          format: int64
+          description: POSIX timestamp the data was last updated.
+        ttl:
+          type: integer
+          description: Seconds before the data should be refreshed.
+        version:
+          type: string
+          example: '2.2'
+    GbfsDiscovery:
+      allOf:
+      - $ref: '#/components/schemas/GbfsEnvelope'
+      - type: object
+        properties:
+          data:
+            type: object
+            additionalProperties:
+              type: object
+              properties:
+                feeds:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                    - name
+                    - url
+                    properties:
+                      name:
+                        type: string
+                        example: free_bike_status
+                      url:
+                        type: string
+                        format: uri

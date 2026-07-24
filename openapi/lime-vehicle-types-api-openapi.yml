@@ -1,0 +1,107 @@
+openapi: 3.1.0
+info:
+  title: Lime GBFS Public Feed Free Bike Status Vehicle Types API
+  version: '2.2'
+  summary: Public General Bikeshare Feed Specification (GBFS) 2.2 endpoints for Lime shared electric vehicles.
+  description: 'Lime publishes per-city public GBFS 2.2 feeds describing the real-time
+
+    location and status of its free-floating shared e-scooters and e-bikes.
+
+    Each city system has its own auto-discovery endpoint
+
+    (`/api/partners/v2/gbfs/{city}/gbfs.json`) listing the sub-feeds. Use is
+
+    governed by the Lime Public GBFS Terms.
+
+    '
+  termsOfService: https://www.li.me/legal/public-gbfs-terms
+  contact:
+    name: Lime Public Affairs
+    url: https://www.li.me/contact-us
+  license:
+    name: Lime Public GBFS Terms
+    url: https://www.li.me/legal/public-gbfs-terms
+servers:
+- url: https://data.lime.bike/api/partners/v2/gbfs/{city}
+  description: Lime GBFS partner endpoint, scoped per city system.
+  variables:
+    city:
+      default: paris
+      description: City slug (e.g. paris, london, berlin, hamburg, rome, atlanta, calgary, ottawa).
+tags:
+- name: Vehicle Types
+paths:
+  /vehicle_types:
+    get:
+      operationId: getVehicleTypes
+      summary: Get Vehicle Types
+      description: Catalog of vehicle types available in the system (form factor, propulsion type, max range).
+      responses:
+        '200':
+          description: Vehicle types feed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VehicleTypesFeed'
+      tags:
+      - Vehicle Types
+components:
+  schemas:
+    VehicleType:
+      type: object
+      required:
+      - vehicle_type_id
+      - form_factor
+      - propulsion_type
+      properties:
+        vehicle_type_id:
+          type: string
+        form_factor:
+          type: string
+          enum:
+          - bicycle
+          - cargo_bicycle
+          - car
+          - moped
+          - scooter
+          - other
+        propulsion_type:
+          type: string
+          enum:
+          - human
+          - electric_assist
+          - electric
+          - combustion
+        max_range_meters:
+          type: number
+          description: Manufacturer-stated max range in meters for the fully charged vehicle.
+    GbfsEnvelope:
+      type: object
+      required:
+      - last_updated
+      - ttl
+      - version
+      - data
+      properties:
+        last_updated:
+          type: integer
+          format: int64
+          description: POSIX timestamp the data was last updated.
+        ttl:
+          type: integer
+          description: Seconds before the data should be refreshed.
+        version:
+          type: string
+          example: '2.2'
+    VehicleTypesFeed:
+      allOf:
+      - $ref: '#/components/schemas/GbfsEnvelope'
+      - type: object
+        properties:
+          data:
+            type: object
+            properties:
+              vehicle_types:
+                type: array
+                items:
+                  $ref: '#/components/schemas/VehicleType'

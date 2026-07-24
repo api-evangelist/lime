@@ -1,0 +1,99 @@
+openapi: 3.1.0
+info:
+  title: Lime GBFS Public Feed Free Bike Status Station Information API
+  version: '2.2'
+  summary: Public General Bikeshare Feed Specification (GBFS) 2.2 endpoints for Lime shared electric vehicles.
+  description: 'Lime publishes per-city public GBFS 2.2 feeds describing the real-time
+
+    location and status of its free-floating shared e-scooters and e-bikes.
+
+    Each city system has its own auto-discovery endpoint
+
+    (`/api/partners/v2/gbfs/{city}/gbfs.json`) listing the sub-feeds. Use is
+
+    governed by the Lime Public GBFS Terms.
+
+    '
+  termsOfService: https://www.li.me/legal/public-gbfs-terms
+  contact:
+    name: Lime Public Affairs
+    url: https://www.li.me/contact-us
+  license:
+    name: Lime Public GBFS Terms
+    url: https://www.li.me/legal/public-gbfs-terms
+servers:
+- url: https://data.lime.bike/api/partners/v2/gbfs/{city}
+  description: Lime GBFS partner endpoint, scoped per city system.
+  variables:
+    city:
+      default: paris
+      description: City slug (e.g. paris, london, berlin, hamburg, rome, atlanta, calgary, ottawa).
+tags:
+- name: Station Information
+paths:
+  /station_information:
+    get:
+      operationId: getStationInformation
+      summary: Get Station Information
+      description: Static information about stations / virtual parking zones, if any.
+      responses:
+        '200':
+          description: Station information feed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StationInformationFeed'
+      tags:
+      - Station Information
+components:
+  schemas:
+    Station:
+      type: object
+      required:
+      - station_id
+      - name
+      - lat
+      - lon
+      properties:
+        station_id:
+          type: string
+        name:
+          type: string
+        lat:
+          type: number
+          format: double
+        lon:
+          type: number
+          format: double
+        capacity:
+          type: integer
+    GbfsEnvelope:
+      type: object
+      required:
+      - last_updated
+      - ttl
+      - version
+      - data
+      properties:
+        last_updated:
+          type: integer
+          format: int64
+          description: POSIX timestamp the data was last updated.
+        ttl:
+          type: integer
+          description: Seconds before the data should be refreshed.
+        version:
+          type: string
+          example: '2.2'
+    StationInformationFeed:
+      allOf:
+      - $ref: '#/components/schemas/GbfsEnvelope'
+      - type: object
+        properties:
+          data:
+            type: object
+            properties:
+              stations:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Station'
