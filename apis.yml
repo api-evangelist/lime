@@ -16,9 +16,20 @@ description: >-
   trip-planning surfaces (Google Maps, Uber, Moovit, Citymapper) and city
   permit dashboards are delivered through the GBFS and MDS feeds.
 type: Index
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
 position: Provider
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/lime.png
 tags:
   - Shared Mobility
   - Micromobility
@@ -37,33 +48,96 @@ created: '2026-05-25'
 modified: '2026-05-25'
 specificationVersion: '0.20'
 apis:
-  - aid: lime:lime-gbfs
-    name: Lime GBFS Public Feed
-    description: >-
-      Public GBFS 2.2 feed exposing the real-time location, vehicle type,
-      battery level, and rental URLs for Lime's free-floating e-scooters and
-      e-bikes per operating city. Each city system has its own auto-discovery
-      endpoint at /api/partners/v2/gbfs/{city}/gbfs.json, which lists the
-      sub-feeds — system_information, station_information, station_status,
-      free_bike_status, and vehicle_types. Use is governed by the Lime Public
-      GBFS Terms. 46+ city systems are registered in the MobilityData GBFS
-      index, including Paris, London, Berlin, Hamburg, Rome, Madrid, Vienna,
-      Tel Aviv, Calgary, Ottawa, Vancouver, Atlanta, Arlington, and others.
-    humanURL: https://www.li.me/legal/public-gbfs-terms
-    tags:
-      - GBFS
-      - Shared Mobility
-      - Micromobility
-      - Real Time
-    properties:
-      - type: Documentation
-        url: https://www.li.me/legal/public-gbfs-terms
-      - type: Documentation
-        url: https://github.com/MobilityData/gbfs/blob/master/gbfs.md
-      - type: OpenAPI
-        url: openapi/lime-gbfs-openapi.yml
-      - type: Discovery
-        url: https://data.lime.bike/api/partners/v2/gbfs/paris/gbfs.json
+- aid: lime:lime-free-bike-status-api
+  name: Lime Free Bike Status API
+  description: The Free Bike Status API from Lime — 1 operation(s) for free bike status.
+  humanURL: https://www.li.me/legal/public-gbfs-terms
+  tags:
+  - Free Bike Status
+  properties:
+  - type: OpenAPI
+    url: openapi/lime-free-bike-status-api-openapi.yml
+  - type: Documentation
+    url: https://www.li.me/legal/public-gbfs-terms
+  - type: Documentation
+    url: https://github.com/MobilityData/gbfs/blob/master/gbfs.md
+  - type: Discovery
+    url: https://data.lime.bike/api/partners/v2/gbfs/paris/gbfs.json
+- aid: lime:lime-gbfs-json-api
+  name: Lime Gbfs.json API
+  description: The Gbfs.json API from Lime — 1 operation(s) for gbfs.json.
+  humanURL: https://www.li.me/legal/public-gbfs-terms
+  tags:
+  - Gbfs.json
+  properties:
+  - type: OpenAPI
+    url: openapi/lime-gbfs-json-api-openapi.yml
+  - type: Documentation
+    url: https://www.li.me/legal/public-gbfs-terms
+  - type: Documentation
+    url: https://github.com/MobilityData/gbfs/blob/master/gbfs.md
+  - type: Discovery
+    url: https://data.lime.bike/api/partners/v2/gbfs/paris/gbfs.json
+- aid: lime:lime-station-information-api
+  name: Lime Station Information API
+  description: The Station Information API from Lime — 1 operation(s) for station information.
+  humanURL: https://www.li.me/legal/public-gbfs-terms
+  tags:
+  - Station Information
+  properties:
+  - type: OpenAPI
+    url: openapi/lime-station-information-api-openapi.yml
+  - type: Documentation
+    url: https://www.li.me/legal/public-gbfs-terms
+  - type: Documentation
+    url: https://github.com/MobilityData/gbfs/blob/master/gbfs.md
+  - type: Discovery
+    url: https://data.lime.bike/api/partners/v2/gbfs/paris/gbfs.json
+- aid: lime:lime-station-status-api
+  name: Lime Station Status API
+  description: The Station Status API from Lime — 1 operation(s) for station status.
+  humanURL: https://www.li.me/legal/public-gbfs-terms
+  tags:
+  - Station Status
+  properties:
+  - type: OpenAPI
+    url: openapi/lime-station-status-api-openapi.yml
+  - type: Documentation
+    url: https://www.li.me/legal/public-gbfs-terms
+  - type: Documentation
+    url: https://github.com/MobilityData/gbfs/blob/master/gbfs.md
+  - type: Discovery
+    url: https://data.lime.bike/api/partners/v2/gbfs/paris/gbfs.json
+- aid: lime:lime-system-information-api
+  name: Lime System Information API
+  description: The System Information API from Lime — 1 operation(s) for system information.
+  humanURL: https://www.li.me/legal/public-gbfs-terms
+  tags:
+  - System Information
+  properties:
+  - type: OpenAPI
+    url: openapi/lime-system-information-api-openapi.yml
+  - type: Documentation
+    url: https://www.li.me/legal/public-gbfs-terms
+  - type: Documentation
+    url: https://github.com/MobilityData/gbfs/blob/master/gbfs.md
+  - type: Discovery
+    url: https://data.lime.bike/api/partners/v2/gbfs/paris/gbfs.json
+- aid: lime:lime-vehicle-types-api
+  name: Lime Vehicle Types API
+  description: The Vehicle Types API from Lime — 1 operation(s) for vehicle types.
+  humanURL: https://www.li.me/legal/public-gbfs-terms
+  tags:
+  - Vehicle Types
+  properties:
+  - type: OpenAPI
+    url: openapi/lime-vehicle-types-api-openapi.yml
+  - type: Documentation
+    url: https://www.li.me/legal/public-gbfs-terms
+  - type: Documentation
+    url: https://github.com/MobilityData/gbfs/blob/master/gbfs.md
+  - type: Discovery
+    url: https://data.lime.bike/api/partners/v2/gbfs/paris/gbfs.json
 common:
   - type: AgenticAccess
     url: agentic-access/lime-agentic-access.yml
