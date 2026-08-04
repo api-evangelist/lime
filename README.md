@@ -1,5 +1,47 @@
 # Lime (lime)
 
+<!-- API-EVANGELIST-PROVENANCE:BEGIN -->
+> ### About this repository
+>
+> **This is not our API.** This repository is an independent, third-party profile of a company's
+> **publicly available** API surface, maintained by [API Evangelist](https://apievangelist.com).
+> API Evangelist does not operate, host, resell, or support this company's APIs, and is not
+> affiliated with or endorsed by the company unless stated on the profile.
+>
+> **Where the information came from.** Everything here is assembled from material a member of the
+> public can reach with a browser and no credentials — the company's own website, developer portal
+> and documentation, the specifications it publishes for public use (OpenAPI, AsyncAPI, JSON Schema,
+> `apis.json`, `llms.txt` and similar), its public repositories, and its public status, pricing and
+> changelog pages. **Nothing here is obtained by breaching a system, defeating an access control, or
+> using credentials of any kind.**
+>
+> **The rating is an independent assessment.** The Kin Score and Agent Readiness rating are
+> independently calculated scores of a company's *public* API artifacts, produced by API Evangelist
+> against a published rubric. They are not certifications, endorsements, security assessments, or
+> audits, and they score published artifacts — not the quality, safety, or security of the software.
+>
+> **Corrections, re-scores, and removal are free.** No partnership, contract, or purchase is
+> required, and you do not need to justify the request.
+>
+> - **Something wrong?** Open an issue on this repository, or email
+>   [info@apievangelist.com](mailto:info@apievangelist.com).
+> - **Published something new?** Ask for a re-score and we will re-run the rating.
+> - **Want the listing taken down?** Say so and we will honor it. The profile is reduced to your
+>   company name, a factual description, and a link to your own site, and the company is recorded as
+>   **unrated** — never scored zero for having asked.
+>
+> **Response times.** Acknowledgement within **one business day**; removal or restriction within
+> **two business days**; corrections and re-scores within **five business days**.
+>
+> **On a security or compliance team?** Email
+> [info@apievangelist.com](mailto:info@apievangelist.com) with *security* in the subject line and
+> you will get a person, not a form. We will tell you exactly which public URLs this profile was
+> built from so your team can see the same surface we did, and we will take the listing down on
+> request while you work through it.
+>
+> Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
+<!-- API-EVANGELIST-PROVENANCE:END -->
+
 Lime is a San Francisco–based shared electric vehicle company that operates e-scooters and e-bikes across more than 280 cities in 30+ countries. Riders unlock and pay for vehicles through the Lime mobile app; cities and transit agencies receive operational data via standardized public feeds. Lime publishes per-city public GBFS (General Bikeshare Feed Specification) 2.2 feeds covering system information, station information, station status, free (dockless) bike status, and vehicle types under the Lime Public GBFS Terms. Lime also publishes MDS Extensions on GitHub — an open-source aggregation layer that sits on top of the MDS Provider standard for sharing k-anonymized operational data with regulators. There is no public, commercially licensable rider/booking API; the rider-facing endpoints at web-production.lime.bike are private to the Lime app. Integrations with trip-planning surfaces (Google Maps, Uber, Moovit, Citymapper) and city permit dashboards are delivered through the GBFS and MDS feeds.
 
 **APIs.json:** [https://raw.githubusercontent.com/api-evangelist/lime/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/lime/refs/heads/main/apis.yml)

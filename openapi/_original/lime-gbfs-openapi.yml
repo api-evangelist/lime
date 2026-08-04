@@ -1,0 +1,303 @@
+openapi: 3.1.0
+info:
+  title: Lime GBFS Public Feed
+  version: '2.2'
+  summary: Public General Bikeshare Feed Specification (GBFS) 2.2 endpoints for Lime shared electric vehicles.
+  description: |
+    Lime publishes per-city public GBFS 2.2 feeds describing the real-time
+    location and status of its free-floating shared e-scooters and e-bikes.
+    Each city system has its own auto-discovery endpoint
+    (`/api/partners/v2/gbfs/{city}/gbfs.json`) listing the sub-feeds. Use is
+    governed by the Lime Public GBFS Terms.
+  termsOfService: https://www.li.me/legal/public-gbfs-terms
+  contact:
+    name: Lime Public Affairs
+    url: https://www.li.me/contact-us
+  license:
+    name: Lime Public GBFS Terms
+    url: https://www.li.me/legal/public-gbfs-terms
+servers:
+  - url: https://data.lime.bike/api/partners/v2/gbfs/{city}
+    description: Lime GBFS partner endpoint, scoped per city system.
+    variables:
+      city:
+        default: paris
+        description: City slug (e.g. paris, london, berlin, hamburg, rome, atlanta, calgary, ottawa).
+paths:
+  /gbfs.json:
+    get:
+      operationId: getGbfsDiscovery
+      summary: Get GBFS Discovery Document
+      description: Auto-discovery file listing the URLs of all sub-feeds available for this city system.
+      responses:
+        '200':
+          description: GBFS discovery document.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GbfsDiscovery'
+  /system_information:
+    get:
+      operationId: getSystemInformation
+      summary: Get System Information
+      description: Operator and system metadata — name, timezone, language, license URL.
+      responses:
+        '200':
+          description: System information feed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SystemInformationFeed'
+  /vehicle_types:
+    get:
+      operationId: getVehicleTypes
+      summary: Get Vehicle Types
+      description: Catalog of vehicle types available in the system (form factor, propulsion type, max range).
+      responses:
+        '200':
+          description: Vehicle types feed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VehicleTypesFeed'
+  /station_information:
+    get:
+      operationId: getStationInformation
+      summary: Get Station Information
+      description: Static information about stations / virtual parking zones, if any.
+      responses:
+        '200':
+          description: Station information feed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StationInformationFeed'
+  /station_status:
+    get:
+      operationId: getStationStatus
+      summary: Get Station Status
+      description: Live availability of vehicles and docks at each station.
+      responses:
+        '200':
+          description: Station status feed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StationStatusFeed'
+  /free_bike_status:
+    get:
+      operationId: getFreeBikeStatus
+      summary: Get Free Bike Status
+      description: Real-time location and availability of free-floating (dockless) vehicles, including rental URLs.
+      responses:
+        '200':
+          description: Free bike status feed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FreeBikeStatusFeed'
+components:
+  schemas:
+    GbfsEnvelope:
+      type: object
+      required: [last_updated, ttl, version, data]
+      properties:
+        last_updated:
+          type: integer
+          format: int64
+          description: POSIX timestamp the data was last updated.
+        ttl:
+          type: integer
+          description: Seconds before the data should be refreshed.
+        version:
+          type: string
+          example: '2.2'
+    GbfsDiscovery:
+      allOf:
+        - $ref: '#/components/schemas/GbfsEnvelope'
+        - type: object
+          properties:
+            data:
+              type: object
+              additionalProperties:
+                type: object
+                properties:
+                  feeds:
+                    type: array
+                    items:
+                      type: object
+                      required: [name, url]
+                      properties:
+                        name:
+                          type: string
+                          example: free_bike_status
+                        url:
+                          type: string
+                          format: uri
+    SystemInformationFeed:
+      allOf:
+        - $ref: '#/components/schemas/GbfsEnvelope'
+        - type: object
+          properties:
+            data:
+              type: object
+              required: [system_id, language, name, timezone]
+              properties:
+                system_id:
+                  type: string
+                  example: lime_paris
+                language:
+                  type: string
+                  example: en
+                name:
+                  type: string
+                  example: Lime Paris
+                timezone:
+                  type: string
+                  example: Europe/Paris
+                license_url:
+                  type: string
+                  format: uri
+                attribution_organization_name:
+                  type: string
+                  example: Lime
+    VehicleType:
+      type: object
+      required: [vehicle_type_id, form_factor, propulsion_type]
+      properties:
+        vehicle_type_id:
+          type: string
+        form_factor:
+          type: string
+          enum: [bicycle, cargo_bicycle, car, moped, scooter, other]
+        propulsion_type:
+          type: string
+          enum: [human, electric_assist, electric, combustion]
+        max_range_meters:
+          type: number
+          description: Manufacturer-stated max range in meters for the fully charged vehicle.
+    VehicleTypesFeed:
+      allOf:
+        - $ref: '#/components/schemas/GbfsEnvelope'
+        - type: object
+          properties:
+            data:
+              type: object
+              properties:
+                vehicle_types:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/VehicleType'
+    Station:
+      type: object
+      required: [station_id, name, lat, lon]
+      properties:
+        station_id:
+          type: string
+        name:
+          type: string
+        lat:
+          type: number
+          format: double
+        lon:
+          type: number
+          format: double
+        capacity:
+          type: integer
+    StationInformationFeed:
+      allOf:
+        - $ref: '#/components/schemas/GbfsEnvelope'
+        - type: object
+          properties:
+            data:
+              type: object
+              properties:
+                stations:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Station'
+    StationStatus:
+      type: object
+      required: [station_id, num_bikes_available, is_installed, is_renting, is_returning, last_reported]
+      properties:
+        station_id:
+          type: string
+        num_bikes_available:
+          type: integer
+        num_docks_available:
+          type: integer
+        is_installed:
+          type: boolean
+        is_renting:
+          type: boolean
+        is_returning:
+          type: boolean
+        last_reported:
+          type: integer
+          format: int64
+    StationStatusFeed:
+      allOf:
+        - $ref: '#/components/schemas/GbfsEnvelope'
+        - type: object
+          properties:
+            data:
+              type: object
+              properties:
+                stations:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/StationStatus'
+    Bike:
+      type: object
+      required: [bike_id, lat, lon, is_reserved, is_disabled]
+      properties:
+        bike_id:
+          type: string
+          description: Anonymized rotating vehicle identifier.
+        lat:
+          type: number
+          format: double
+        lon:
+          type: number
+          format: double
+        is_reserved:
+          type: boolean
+        is_disabled:
+          type: boolean
+        vehicle_type_id:
+          type: string
+        current_range_meters:
+          type: number
+        rental_uris:
+          type: object
+          properties:
+            android:
+              type: string
+              format: uri
+            ios:
+              type: string
+              format: uri
+            web:
+              type: string
+              format: uri
+    FreeBikeStatusFeed:
+      allOf:
+        - $ref: '#/components/schemas/GbfsEnvelope'
+        - type: object
+          properties:
+            data:
+              type: object
+              properties:
+                bikes:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Bike'
+tags:
+  - name: Discovery
+    description: GBFS auto-discovery endpoint.
+  - name: System
+    description: Operator and system metadata.
+  - name: Vehicles
+    description: Real-time vehicle inventory and status.
+  - name: Stations
+    description: Station information and status (where applicable).

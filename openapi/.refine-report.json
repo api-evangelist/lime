@@ -1,0 +1,24 @@
+{
+  "provider": "lime",
+  "sources": [
+    "lime-free-bike-status-api-openapi.yml",
+    "lime-gbfs-json-api-openapi.yml",
+    "lime-station-information-api-openapi.yml",
+    "lime-station-status-api-openapi.yml",
+    "lime-system-information-api-openapi.yml",
+    "lime-vehicle-types-api-openapi.yml"
+  ],
+  "outputs": [
+    "lime-free-bike-status-api-openapi.yml",
+    "lime-gbfs-json-api-openapi.yml",
+    "lime-station-information-api-openapi.yml",
+    "lime-station-status-api-openapi.yml",
+    "lime-system-information-api-openapi.yml",
+    "lime-vehicle-types-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
