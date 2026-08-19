@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Lime GBFS Public Feed Free Bike Status Station Status API",
+    "version": "2.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Station Status",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Station Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.lime.bike/api/partners/v2/gbfs/{city}/station_status"
+          },
+          "docs": "Live availability of vehicles and docks at each station."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

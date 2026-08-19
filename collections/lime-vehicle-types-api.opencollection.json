@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Lime GBFS Public Feed Free Bike Status Vehicle Types API",
+    "version": "2.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Vehicle Types",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Vehicle Types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.lime.bike/api/partners/v2/gbfs/{city}/vehicle_types"
+          },
+          "docs": "Catalog of vehicle types available in the system (form factor, propulsion type, max range)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

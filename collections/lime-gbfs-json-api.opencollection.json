@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Lime GBFS Public Feed Free Bike Status Gbfs.json API",
+    "version": "2.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Gbfs.json",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get GBFS Discovery Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.lime.bike/api/partners/v2/gbfs/{city}/gbfs.json"
+          },
+          "docs": "Auto-discovery file listing the URLs of all sub-feeds available for this city system."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

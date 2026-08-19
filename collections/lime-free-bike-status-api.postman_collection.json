@@ -1,0 +1,125 @@
+{
+  "item": [
+    {
+      "id": "14ee516f-595a-437c-b6b0-4fc425ae65cc",
+      "name": "Free Bike Status",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5a8e459b-9470-4076-8b3b-72bf6ebc7bcf",
+          "name": "Get Free Bike Status",
+          "request": {
+            "name": "Get Free Bike Status",
+            "description": {
+              "content": "Real-time location and availability of free-floating (dockless) vehicles, including rental URLs.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "free_bike_status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "City slug (e.g. paris, london, berlin, hamburg, rome, atlanta, calgary, ottawa).",
+                  "type": "any",
+                  "value": "{{city}}",
+                  "key": "city"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "843a78d2-ddf6-4752-8336-a4579c4440c9",
+              "name": "Free bike status feed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "free_bike_status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "City slug (e.g. paris, london, berlin, hamburg, rome, atlanta, calgary, ottawa).",
+                      "type": "any",
+                      "value": "{{city}}",
+                      "key": "city"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"last_updated\": 5832,\n  \"ttl\": 5153,\n  \"version\": \"2.2\",\n  \"data\": {\n    \"bikes\": [\n      {\n        \"bike_id\": \"string\",\n        \"lat\": 8491.256720379635,\n        \"lon\": 8688.226906363596,\n        \"is_reserved\": true,\n        \"is_disabled\": true,\n        \"vehicle_type_id\": \"string\",\n        \"current_range_meters\": 3524.3356455841003,\n        \"rental_uris\": {\n          \"android\": \"http://RPh.ypdhKjQg,2canyDWkkAqPl3OtlEL\",\n          \"ios\": \"https://BVcEqbHLVQJneVbiWySlxf.rqnsnUKV5fLG20xcUxMFlYJu3Pqg2HfE746t4dE95TJG8D\",\n          \"web\": \"http://kwRmQPwC.dfelzoXCXohbFVTmGrbc3z2D8MNxdkBiNAYX65vdhEg4OGNK+xXFWZX8Q\"\n        }\n      },\n      {\n        \"bike_id\": \"string\",\n        \"lat\": 9188.305798502557,\n        \"lon\": 2743.403070409266,\n        \"is_reserved\": true,\n        \"is_disabled\": true,\n        \"vehicle_type_id\": \"string\",\n        \"current_range_meters\": 624.4774435640587,\n        \"rental_uris\": {\n          \"android\": \"https://DaOZvLRA.mpcEgWb,znzX2fcZPu4G0kNSlDOl-W7UZsXWqjC\",\n          \"ios\": \"https://IQApfZkMrqrod.rknRe.Ad8wDHMdGIUZ8qXJkqjCWaf\",\n          \"web\": \"http://wOlbOpwVIMFFIeItEBOVpJjgriYZrm.yqhmRYJ8mGFsB2JJV,luGg.9TMx4Kj4yjVSY5aNInNlGEDUO6oJtKrNH5\"\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "City slug (e.g. paris, london, berlin, hamburg, rome, atlanta, calgary, ottawa).",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "paris",
+      "key": "city"
+    },
+    {
+      "type": "string",
+      "value": "https://data.lime.bike/api/partners/v2/gbfs/{{city}}",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "ef81153d-3887-43d3-994b-976af322dd64",
+    "name": "Lime GBFS Public Feed Free Bike Status API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Lime publishes per-city public GBFS 2.2 feeds describing the real-time\nlocation and status of its free-floating shared e-scooters and e-bikes.\nEach city system has its own auto-discovery endpoint\n(`/api/partners/v2/gbfs/{city}/gbfs.json`) listing the sub-feeds. Use is\ngoverned by the Lime Public GBFS Terms.\n\n\nContact Support:\n Name: Lime Public Affairs",
+      "type": "text/plain"
+    }
+  }
+}

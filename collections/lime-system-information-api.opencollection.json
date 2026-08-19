@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Lime GBFS Public Feed Free Bike Status System Information API",
+    "version": "2.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "System Information",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get System Information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.lime.bike/api/partners/v2/gbfs/{city}/system_information"
+          },
+          "docs": "Operator and system metadata — name, timezone, language, license URL."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

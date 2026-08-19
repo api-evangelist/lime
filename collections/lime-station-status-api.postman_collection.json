@@ -1,0 +1,125 @@
+{
+  "item": [
+    {
+      "id": "7e4c748c-fb7d-478d-8e79-55ab67972275",
+      "name": "Station Status",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "bcae3352-528d-4a65-8846-a75620d61ec3",
+          "name": "Get Station Status",
+          "request": {
+            "name": "Get Station Status",
+            "description": {
+              "content": "Live availability of vehicles and docks at each station.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "station_status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "City slug (e.g. paris, london, berlin, hamburg, rome, atlanta, calgary, ottawa).",
+                  "type": "any",
+                  "value": "{{city}}",
+                  "key": "city"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6ae7a226-3500-4d39-9821-2f0d03f1d834",
+              "name": "Station status feed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "station_status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "City slug (e.g. paris, london, berlin, hamburg, rome, atlanta, calgary, ottawa).",
+                      "type": "any",
+                      "value": "{{city}}",
+                      "key": "city"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"last_updated\": 4903,\n  \"ttl\": 1143,\n  \"version\": \"2.2\",\n  \"data\": {\n    \"stations\": [\n      {\n        \"station_id\": \"string\",\n        \"num_bikes_available\": 2676,\n        \"is_installed\": false,\n        \"is_renting\": true,\n        \"is_returning\": false,\n        \"last_reported\": 9509,\n        \"num_docks_available\": 3915\n      },\n      {\n        \"station_id\": \"string\",\n        \"num_bikes_available\": 9301,\n        \"is_installed\": false,\n        \"is_renting\": false,\n        \"is_returning\": true,\n        \"last_reported\": 5682,\n        \"num_docks_available\": 5101\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "City slug (e.g. paris, london, berlin, hamburg, rome, atlanta, calgary, ottawa).",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "paris",
+      "key": "city"
+    },
+    {
+      "type": "string",
+      "value": "https://data.lime.bike/api/partners/v2/gbfs/{{city}}",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "a16a212d-49fb-4632-84f6-24414203e360",
+    "name": "Lime GBFS Public Feed Free Bike Status Station Status API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Lime publishes per-city public GBFS 2.2 feeds describing the real-time\nlocation and status of its free-floating shared e-scooters and e-bikes.\nEach city system has its own auto-discovery endpoint\n(`/api/partners/v2/gbfs/{city}/gbfs.json`) listing the sub-feeds. Use is\ngoverned by the Lime Public GBFS Terms.\n\n\nContact Support:\n Name: Lime Public Affairs",
+      "type": "text/plain"
+    }
+  }
+}

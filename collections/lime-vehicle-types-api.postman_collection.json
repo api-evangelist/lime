@@ -1,0 +1,125 @@
+{
+  "item": [
+    {
+      "id": "c3e7f1e6-b891-4fa3-aa95-90c7a17f4427",
+      "name": "Vehicle Types",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3fbab418-932e-4525-8795-f4ed69edc653",
+          "name": "Get Vehicle Types",
+          "request": {
+            "name": "Get Vehicle Types",
+            "description": {
+              "content": "Catalog of vehicle types available in the system (form factor, propulsion type, max range).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "vehicle_types"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "City slug (e.g. paris, london, berlin, hamburg, rome, atlanta, calgary, ottawa).",
+                  "type": "any",
+                  "value": "{{city}}",
+                  "key": "city"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fa7c4a5b-255e-4f20-80bc-53bd42edd8fb",
+              "name": "Vehicle types feed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vehicle_types"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "City slug (e.g. paris, london, berlin, hamburg, rome, atlanta, calgary, ottawa).",
+                      "type": "any",
+                      "value": "{{city}}",
+                      "key": "city"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"last_updated\": 2368,\n  \"ttl\": 5687,\n  \"version\": \"2.2\",\n  \"data\": {\n    \"vehicle_types\": [\n      {\n        \"vehicle_type_id\": \"string\",\n        \"form_factor\": \"scooter\",\n        \"propulsion_type\": \"electric_assist\",\n        \"max_range_meters\": 5921.816341890139\n      },\n      {\n        \"vehicle_type_id\": \"string\",\n        \"form_factor\": \"moped\",\n        \"propulsion_type\": \"combustion\",\n        \"max_range_meters\": 4788.806389999521\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "City slug (e.g. paris, london, berlin, hamburg, rome, atlanta, calgary, ottawa).",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "paris",
+      "key": "city"
+    },
+    {
+      "type": "string",
+      "value": "https://data.lime.bike/api/partners/v2/gbfs/{{city}}",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "146be5b5-bd7c-42fa-8bfa-539ecb295c2d",
+    "name": "Lime GBFS Public Feed Free Bike Status Vehicle Types API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Lime publishes per-city public GBFS 2.2 feeds describing the real-time\nlocation and status of its free-floating shared e-scooters and e-bikes.\nEach city system has its own auto-discovery endpoint\n(`/api/partners/v2/gbfs/{city}/gbfs.json`) listing the sub-feeds. Use is\ngoverned by the Lime Public GBFS Terms.\n\n\nContact Support:\n Name: Lime Public Affairs",
+      "type": "text/plain"
+    }
+  }
+}

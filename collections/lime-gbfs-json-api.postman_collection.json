@@ -1,0 +1,125 @@
+{
+  "item": [
+    {
+      "id": "bb553c75-3051-415a-8b7a-8d433fa6d9a5",
+      "name": "Gbfs.json",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "55daa007-4215-433d-94a4-4fdc4cc80f1c",
+          "name": "Get GBFS Discovery Document",
+          "request": {
+            "name": "Get GBFS Discovery Document",
+            "description": {
+              "content": "Auto-discovery file listing the URLs of all sub-feeds available for this city system.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "gbfs.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "City slug (e.g. paris, london, berlin, hamburg, rome, atlanta, calgary, ottawa).",
+                  "type": "any",
+                  "value": "{{city}}",
+                  "key": "city"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3a8db2c7-edca-4eb8-9aa0-f2d79722c956",
+              "name": "GBFS discovery document.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gbfs.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "City slug (e.g. paris, london, berlin, hamburg, rome, atlanta, calgary, ottawa).",
+                      "type": "any",
+                      "value": "{{city}}",
+                      "key": "city"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"last_updated\": 9910,\n  \"ttl\": 8429,\n  \"version\": \"2.2\",\n  \"data\": {\n    \"key_0\": {\n      \"feeds\": [\n        {\n          \"name\": \"free_bike_status\",\n          \"url\": \"https://VXDFQhKxtOaDn.bqupJgXY4TAa8v7G6u1gS7UoWQcGhM-5p4tRDtUoDz8MQj8kX,FKgy7qxS5I3Beyr.5LYs\"\n        },\n        {\n          \"name\": \"free_bike_status\",\n          \"url\": \"https://rmExrBkCia.fdN9+6WMT+hLmNFVw5-noNZrSh+xpqSLpwxJafC2+DLUTKYGAtxFjeYWyM+LDnWIa1-toMe\"\n        }\n      ]\n    },\n    \"key_1\": {\n      \"feeds\": [\n        {\n          \"name\": \"free_bike_status\",\n          \"url\": \"http://JjhmLIoeINwmZVePEmZVHLJmrbpeX.vcTadnTA0k4iT2o9ePRowON3V-aqgod33l-04RaUiGtcW6Bwj.5QyTUF\"\n        },\n        {\n          \"name\": \"free_bike_status\",\n          \"url\": \"https://oxasfGgHymknRmrbvcNNDnqRCJ.fcbeGk50-S.LScJBNMlyoTWj..E\"\n        }\n      ]\n    },\n    \"key_2\": {\n      \"feeds\": [\n        {\n          \"name\": \"free_bike_status\",\n          \"url\": \"http://XsdlvUrzxNsHPllosJvr.nxgzMET1mh4IJ7boj.dWEQn\"\n        },\n        {\n          \"name\": \"free_bike_status\",\n          \"url\": \"http://WqbxN.yzoivk.YwV,EbNErO7TZGQPcw8RX\"\n        }\n      ]\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "City slug (e.g. paris, london, berlin, hamburg, rome, atlanta, calgary, ottawa).",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "paris",
+      "key": "city"
+    },
+    {
+      "type": "string",
+      "value": "https://data.lime.bike/api/partners/v2/gbfs/{{city}}",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "7701b736-8edf-45ab-b910-ee1a8c78b5c7",
+    "name": "Lime GBFS Public Feed Free Bike Status Gbfs.json API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Lime publishes per-city public GBFS 2.2 feeds describing the real-time\nlocation and status of its free-floating shared e-scooters and e-bikes.\nEach city system has its own auto-discovery endpoint\n(`/api/partners/v2/gbfs/{city}/gbfs.json`) listing the sub-feeds. Use is\ngoverned by the Lime Public GBFS Terms.\n\n\nContact Support:\n Name: Lime Public Affairs",
+      "type": "text/plain"
+    }
+  }
+}
