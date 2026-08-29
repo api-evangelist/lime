@@ -151,6 +151,9 @@ apis:
   - type: Discovery
     url: https://data.lime.bike/api/partners/v2/gbfs/paris/gbfs.json
 common:
+  - type: CapabilityMap
+    url: capabilities/lime-capability-edges.yml
+    name: Lime Business Capability Map
   - type: AgenticAccess
     url: agentic-access/lime-agentic-access.yml
   - type: VulnerabilityDisclosure
