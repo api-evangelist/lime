@@ -1,12 +1,7 @@
 {
   "provider": "lime",
   "sources": [
-    "lime-free-bike-status-api-openapi.yml",
-    "lime-gbfs-json-api-openapi.yml",
-    "lime-station-information-api-openapi.yml",
-    "lime-station-status-api-openapi.yml",
-    "lime-system-information-api-openapi.yml",
-    "lime-vehicle-types-api-openapi.yml"
+    "_original/lime-gbfs-openapi.yml"
   ],
   "outputs": [
     "lime-free-bike-status-api-openapi.yml",
@@ -19,6 +14,29 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "lime-gbfs-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "lime-gbfs-openapi.yml: tagged paths GET /gbfs.json -> Gbfs.json",
+    "lime-gbfs-openapi.yml: tagged paths GET /system_information -> System Information",
+    "lime-gbfs-openapi.yml: tagged paths GET /vehicle_types -> Vehicle Types",
+    "lime-gbfs-openapi.yml: tagged paths GET /station_information -> Station Information",
+    "lime-gbfs-openapi.yml: tagged paths GET /station_status -> Station Status",
+    "lime-gbfs-openapi.yml: tagged paths GET /free_bike_status -> Free Bike Status",
+    "lime-gbfs-openapi.yml: declared missing tag: Free Bike Status",
+    "lime-gbfs-openapi.yml: declared missing tag: Gbfs.json",
+    "lime-gbfs-openapi.yml: declared missing tag: Station Information",
+    "lime-gbfs-openapi.yml: declared missing tag: Station Status",
+    "lime-gbfs-openapi.yml: declared missing tag: System Information",
+    "lime-gbfs-openapi.yml: declared missing tag: Vehicle Types",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "lime-free-bike-status-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "lime-gbfs-json-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "lime-station-information-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "lime-station-status-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "lime-system-information-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "lime-vehicle-types-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
