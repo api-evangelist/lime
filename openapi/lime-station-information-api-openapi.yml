@@ -45,26 +45,6 @@ paths:
       - Station Information
 components:
   schemas:
-    Station:
-      type: object
-      required:
-      - station_id
-      - name
-      - lat
-      - lon
-      properties:
-        station_id:
-          type: string
-        name:
-          type: string
-        lat:
-          type: number
-          format: double
-        lon:
-          type: number
-          format: double
-        capacity:
-          type: integer
     StationInformationFeed:
       allOf:
       - $ref: '#/components/schemas/GbfsEnvelope'
@@ -95,3 +75,23 @@ components:
         version:
           type: string
           example: '2.2'
+    Station:
+      type: object
+      required:
+      - station_id
+      - name
+      - lat
+      - lon
+      properties:
+        station_id:
+          type: string
+        name:
+          type: string
+        lat:
+          type: number
+          format: double
+        lon:
+          type: number
+          format: double
+        capacity:
+          type: integer

@@ -55,6 +55,7 @@ tags:
   - MDS
   - Smart Cities
   - Transit
+  - Mobility
 tags_raw:
   - Shared Mobility
   - Micromobility
@@ -68,6 +69,7 @@ tags_raw:
   - MDS
   - Smart Cities
   - Transit
+  - Mobility
 url: https://raw.githubusercontent.com/api-evangelist/lime/refs/heads/main/apis.yml
 created: '2026-05-25'
 modified: '2026-05-25'

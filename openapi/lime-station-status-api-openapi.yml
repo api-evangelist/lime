@@ -70,18 +70,6 @@ components:
         last_reported:
           type: integer
           format: int64
-    StationStatusFeed:
-      allOf:
-      - $ref: '#/components/schemas/GbfsEnvelope'
-      - type: object
-        properties:
-          data:
-            type: object
-            properties:
-              stations:
-                type: array
-                items:
-                  $ref: '#/components/schemas/StationStatus'
     GbfsEnvelope:
       type: object
       required:
@@ -100,3 +88,15 @@ components:
         version:
           type: string
           example: '2.2'
+    StationStatusFeed:
+      allOf:
+      - $ref: '#/components/schemas/GbfsEnvelope'
+      - type: object
+        properties:
+          data:
+            type: object
+            properties:
+              stations:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StationStatus'

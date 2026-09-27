@@ -45,34 +45,6 @@ paths:
       - Vehicle Types
 components:
   schemas:
-    VehicleType:
-      type: object
-      required:
-      - vehicle_type_id
-      - form_factor
-      - propulsion_type
-      properties:
-        vehicle_type_id:
-          type: string
-        form_factor:
-          type: string
-          enum:
-          - bicycle
-          - cargo_bicycle
-          - car
-          - moped
-          - scooter
-          - other
-        propulsion_type:
-          type: string
-          enum:
-          - human
-          - electric_assist
-          - electric
-          - combustion
-        max_range_meters:
-          type: number
-          description: Manufacturer-stated max range in meters for the fully charged vehicle.
     VehicleTypesFeed:
       allOf:
       - $ref: '#/components/schemas/GbfsEnvelope'
@@ -103,3 +75,31 @@ components:
         version:
           type: string
           example: '2.2'
+    VehicleType:
+      type: object
+      required:
+      - vehicle_type_id
+      - form_factor
+      - propulsion_type
+      properties:
+        vehicle_type_id:
+          type: string
+        form_factor:
+          type: string
+          enum:
+          - bicycle
+          - cargo_bicycle
+          - car
+          - moped
+          - scooter
+          - other
+        propulsion_type:
+          type: string
+          enum:
+          - human
+          - electric_assist
+          - electric
+          - combustion
+        max_range_meters:
+          type: number
+          description: Manufacturer-stated max range in meters for the fully charged vehicle.

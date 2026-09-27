@@ -45,18 +45,6 @@ paths:
       - Free Bike Status
 components:
   schemas:
-    FreeBikeStatusFeed:
-      allOf:
-      - $ref: '#/components/schemas/GbfsEnvelope'
-      - type: object
-        properties:
-          data:
-            type: object
-            properties:
-              bikes:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Bike'
     Bike:
       type: object
       required:
@@ -95,6 +83,18 @@ components:
             web:
               type: string
               format: uri
+    FreeBikeStatusFeed:
+      allOf:
+      - $ref: '#/components/schemas/GbfsEnvelope'
+      - type: object
+        properties:
+          data:
+            type: object
+            properties:
+              bikes:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Bike'
     GbfsEnvelope:
       type: object
       required:
