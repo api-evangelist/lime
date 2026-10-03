@@ -45,18 +45,6 @@ paths:
       - Vehicle Types
 components:
   schemas:
-    VehicleTypesFeed:
-      allOf:
-      - $ref: '#/components/schemas/GbfsEnvelope'
-      - type: object
-        properties:
-          data:
-            type: object
-            properties:
-              vehicle_types:
-                type: array
-                items:
-                  $ref: '#/components/schemas/VehicleType'
     GbfsEnvelope:
       type: object
       required:
@@ -75,6 +63,18 @@ components:
         version:
           type: string
           example: '2.2'
+    VehicleTypesFeed:
+      allOf:
+      - $ref: '#/components/schemas/GbfsEnvelope'
+      - type: object
+        properties:
+          data:
+            type: object
+            properties:
+              vehicle_types:
+                type: array
+                items:
+                  $ref: '#/components/schemas/VehicleType'
     VehicleType:
       type: object
       required:

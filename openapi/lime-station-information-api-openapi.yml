@@ -45,18 +45,6 @@ paths:
       - Station Information
 components:
   schemas:
-    StationInformationFeed:
-      allOf:
-      - $ref: '#/components/schemas/GbfsEnvelope'
-      - type: object
-        properties:
-          data:
-            type: object
-            properties:
-              stations:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Station'
     GbfsEnvelope:
       type: object
       required:
@@ -75,6 +63,18 @@ components:
         version:
           type: string
           example: '2.2'
+    StationInformationFeed:
+      allOf:
+      - $ref: '#/components/schemas/GbfsEnvelope'
+      - type: object
+        properties:
+          data:
+            type: object
+            properties:
+              stations:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Station'
     Station:
       type: object
       required:
