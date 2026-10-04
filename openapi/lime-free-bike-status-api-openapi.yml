@@ -83,6 +83,18 @@ components:
             web:
               type: string
               format: uri
+    FreeBikeStatusFeed:
+      allOf:
+      - $ref: '#/components/schemas/GbfsEnvelope'
+      - type: object
+        properties:
+          data:
+            type: object
+            properties:
+              bikes:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Bike'
     GbfsEnvelope:
       type: object
       required:
@@ -101,15 +113,3 @@ components:
         version:
           type: string
           example: '2.2'
-    FreeBikeStatusFeed:
-      allOf:
-      - $ref: '#/components/schemas/GbfsEnvelope'
-      - type: object
-        properties:
-          data:
-            type: object
-            properties:
-              bikes:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Bike'

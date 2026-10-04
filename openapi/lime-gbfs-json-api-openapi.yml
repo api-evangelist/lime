@@ -45,24 +45,6 @@ paths:
       - Gbfs.json
 components:
   schemas:
-    GbfsEnvelope:
-      type: object
-      required:
-      - last_updated
-      - ttl
-      - version
-      - data
-      properties:
-        last_updated:
-          type: integer
-          format: int64
-          description: POSIX timestamp the data was last updated.
-        ttl:
-          type: integer
-          description: Seconds before the data should be refreshed.
-        version:
-          type: string
-          example: '2.2'
     GbfsDiscovery:
       allOf:
       - $ref: '#/components/schemas/GbfsEnvelope'
@@ -87,3 +69,21 @@ components:
                       url:
                         type: string
                         format: uri
+    GbfsEnvelope:
+      type: object
+      required:
+      - last_updated
+      - ttl
+      - version
+      - data
+      properties:
+        last_updated:
+          type: integer
+          format: int64
+          description: POSIX timestamp the data was last updated.
+        ttl:
+          type: integer
+          description: Seconds before the data should be refreshed.
+        version:
+          type: string
+          example: '2.2'

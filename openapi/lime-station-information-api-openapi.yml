@@ -45,36 +45,6 @@ paths:
       - Station Information
 components:
   schemas:
-    GbfsEnvelope:
-      type: object
-      required:
-      - last_updated
-      - ttl
-      - version
-      - data
-      properties:
-        last_updated:
-          type: integer
-          format: int64
-          description: POSIX timestamp the data was last updated.
-        ttl:
-          type: integer
-          description: Seconds before the data should be refreshed.
-        version:
-          type: string
-          example: '2.2'
-    StationInformationFeed:
-      allOf:
-      - $ref: '#/components/schemas/GbfsEnvelope'
-      - type: object
-        properties:
-          data:
-            type: object
-            properties:
-              stations:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Station'
     Station:
       type: object
       required:
@@ -95,3 +65,33 @@ components:
           format: double
         capacity:
           type: integer
+    StationInformationFeed:
+      allOf:
+      - $ref: '#/components/schemas/GbfsEnvelope'
+      - type: object
+        properties:
+          data:
+            type: object
+            properties:
+              stations:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Station'
+    GbfsEnvelope:
+      type: object
+      required:
+      - last_updated
+      - ttl
+      - version
+      - data
+      properties:
+        last_updated:
+          type: integer
+          format: int64
+          description: POSIX timestamp the data was last updated.
+        ttl:
+          type: integer
+          description: Seconds before the data should be refreshed.
+        version:
+          type: string
+          example: '2.2'

@@ -45,24 +45,6 @@ paths:
       - System Information
 components:
   schemas:
-    GbfsEnvelope:
-      type: object
-      required:
-      - last_updated
-      - ttl
-      - version
-      - data
-      properties:
-        last_updated:
-          type: integer
-          format: int64
-          description: POSIX timestamp the data was last updated.
-        ttl:
-          type: integer
-          description: Seconds before the data should be refreshed.
-        version:
-          type: string
-          example: '2.2'
     SystemInformationFeed:
       allOf:
       - $ref: '#/components/schemas/GbfsEnvelope'
@@ -94,3 +76,21 @@ components:
               attribution_organization_name:
                 type: string
                 example: Lime
+    GbfsEnvelope:
+      type: object
+      required:
+      - last_updated
+      - ttl
+      - version
+      - data
+      properties:
+        last_updated:
+          type: integer
+          format: int64
+          description: POSIX timestamp the data was last updated.
+        ttl:
+          type: integer
+          description: Seconds before the data should be refreshed.
+        version:
+          type: string
+          example: '2.2'
