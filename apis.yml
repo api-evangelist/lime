@@ -72,7 +72,7 @@ tags_raw:
   - Mobility
 url: https://raw.githubusercontent.com/api-evangelist/lime/refs/heads/main/apis.yml
 created: '2026-05-25'
-modified: '2026-05-25'
+modified: '2026-10-06'
 specificationVersion: '0.23'
 apis:
 - aid: lime:lime-free-bike-status-api
@@ -166,6 +166,8 @@ apis:
   - type: Discovery
     url: https://data.lime.bike/api/partners/v2/gbfs/paris/gbfs.json
 common:
+  - url: https://www.li.me/blog
+    type: Blog
   - type: CapabilityMap
     url: capabilities/lime-capability-edges.yml
     name: Lime Business Capability Map
