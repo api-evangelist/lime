@@ -1,0 +1,75 @@
+edges:
+- partner_name: GBFS (MobilityData systems.csv)
+  partner: null
+  partner_match: register
+  type: register
+  direction: partner-built
+  evidence: https://data.lime.bike/api/partners/v2/gbfs/antwerp/gbfs.json
+  category: GBFS shared-mobility feed
+  channel: standard-directory
+  relationship: standard-participant
+  contract_reference:
+    register: GBFS systems.csv (github.com/MobilityData/gbfs)
+    standard: GBFS (General Bikeshare Feed Specification)
+    spec_file: null
+    role: gbfs-system-operator
+    registered_name: Lime Antwerp
+    register_id: lime_antwerp
+    website: https://www.li.me/
+    matched_domain: li.me
+    matched_by: domain
+    domain_source: operator website column
+    versions_supported: &id001
+    - '1.0'
+    - '2.2'
+    - '2.3'
+    - '3.0'
+    systems_sample:
+    - lime_antwerp
+    - lime_arlington
+    - lime_atlanta
+    - lime_baltimore
+    - lime_bari
+    - lime_basel
+    signal_note: 'participation only: GBFS has no conformance register, so no certified_products; system counts,
+      cities and versions are context, never counted'
+    detected_by: sweep-transit-mobility.py
+    detected: '2026-10-18'
+  detected_by: sweep-transit-mobility.py
+  first_seen: '2026-10-18'
+- partner_name: GBFS (MobilityData systems.csv)
+  partner: null
+  partner_match: register
+  type: register
+  direction: partner-built
+  evidence: https://data.lime.bike/api/partners/v2/gbfs/antwerp/gbfs.json
+  category: GBFS shared-mobility feed
+  channel: standard-directory
+  relationship: compatible
+  shape: gbfs
+  evidence_kind: standard-register
+  degree: published
+  report_only: true
+  note: publishes a GBFS auto-discovery feed listed in MobilityData's systems.csv (no anchor repo)
+  contract_reference:
+    register: GBFS systems.csv (github.com/MobilityData/gbfs)
+    spec_file: null
+    standard: GBFS
+    role: gbfs-system-operator
+    registered_name: Lime Antwerp
+    matched_domain: li.me
+    versions_supported: *id001
+    detected_by: sweep-transit-mobility.py
+    detected: '2026-10-18'
+  detected_by: sweep-transit-mobility.py
+  first_seen: '2026-10-18'
+generated: '2026-10-18'
+method: searched
+source:
+- https://files.mobilitydatabase.org/feeds_v2.csv
+- https://github.com/MobilityData/gbfs/blob/master/systems.csv
+- https://maas-alliance.eu/
+checked:
+- https://files.mobilitydatabase.org/feeds_v2.csv
+- https://github.com/MobilityData/gbfs/blob/master/systems.csv
+- https://maas-alliance.eu/
