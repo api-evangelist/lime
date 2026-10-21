@@ -63,6 +63,35 @@ edges:
     detected: '2026-10-18'
   detected_by: sweep-transit-mobility.py
   first_seen: '2026-10-18'
+- partner_name: Andreessen Horowitz (a16z)
+  partner: a16z
+  partner_match: register
+  type: register
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://a16z.com/companies/lime/
+  category: vc portfolio participation
+  contract_reference:
+    register: a16z portfolio (a16z.com/portfolio/, the page's own data-companies JSON)
+    standard: null
+    spec_file: null
+    role: vc-portfolio-company
+    registered_name: Lime
+    register_id: https://a16z.com/companies/lime/
+    register_country: null
+    register_website: https://www.li.me/
+    matched_domain: li.me
+    matched_by: domain
+    signal_note: 'participation only: the venture firm''s own published portfolio lists the company (investment);
+      an ownership and participation record, not conformance or certification'
+    detected_by: sweep-vc-portfolios.py
+    detected: '2026-10-21'
+    year: '2017'
+    status: Exits
+    sector: Consumer
+  detected_by: sweep-vc-portfolios.py
+  first_seen: '2026-10-21'
 generated: '2026-10-18'
 method: searched
 source:
@@ -73,3 +102,9 @@ checked:
 - https://files.mobilitydatabase.org/feeds_v2.csv
 - https://github.com/MobilityData/gbfs/blob/master/systems.csv
 - https://maas-alliance.eu/
+- https://a16z.com/portfolio/
+- https://www.battery.com/company/
+- https://www.battery.com/wp-admin/admin-ajax.php
+- https://www.indexventures.com/companies/
+- https://www.sequoiacap.com/our-companies/
+- https://www.sequoiacap.com/sitemap.xml
