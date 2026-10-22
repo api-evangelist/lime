@@ -71,3 +71,32 @@
     sector: Consumer
   status: not-a-workflow
   arazzo: null
+- slug: lime-open-mobility-foundation-mds-registered-providers
+  label: Open Mobility Foundation MDS registered providers
+  partner_name: Open Mobility Foundation MDS registered providers
+  category: MDS provider registration
+  type: register
+  channel: standard-directory
+  evidence: https://raw.githubusercontent.com/openmobilityfoundation/mobility-data-specification/main/providers.csv
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: Open Mobility Foundation MDS registered providers
+    standard: Mobility Data Specification (MDS)
+    spec_file: null
+    role: mds-provider
+    registrations:
+    - registered_name: Lime
+      mode: micromobility
+      provider_id: 63f13c48-34ff-49d2-aca7-cf6a5b6171c3
+      matched_domain: li.me
+      matched_by: domain
+      mds_api_host: data.lime.bike
+      gbfs_api_host: null
+      evidence_url: https://github.com/openmobilityfoundation/mobility-data-specification/blob/main/providers.csv
+    signal_note: 'participation only: an OMF provider registration (provider_id issued); the OMF publishes no MDS
+      conformance certification'
+    detected_by: sweep-open-mobility-foundation-mds.py
+    detected: '2026-10-22'
+  status: not-a-workflow
+  arazzo: null
