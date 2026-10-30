@@ -1,4 +1,4 @@
-# Lime (lime)
+# Lime
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,78 +66,110 @@
 
 Lime is a San Francisco–based shared electric vehicle company that operates e-scooters and e-bikes across more than 280 cities in 30+ countries. Riders unlock and pay for vehicles through the Lime mobile app; cities and transit agencies receive operational data via standardized public feeds. Lime publishes per-city public GBFS (General Bikeshare Feed Specification) 2.2 feeds covering system information, station information, station status, free (dockless) bike status, and vehicle types under the Lime Public GBFS Terms. Lime also publishes MDS Extensions on GitHub — an open-source aggregation layer that sits on top of the MDS Provider standard for sharing k-anonymized operational data with regulators. There is no public, commercially licensable rider/booking API; the rider-facing endpoints at web-production.lime.bike are private to the Lime app. Integrations with trip-planning surfaces (Google Maps, Uber, Moovit, Citymapper) and city permit dashboards are delivered through the GBFS and MDS feeds.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/lime/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/lime/refs/heads/main/apis.yml)
+**Areas:** Shared Mobility · Micromobility · Electric Scooters · Electric Bikes · E-Bikes · E-Scooter · Transportation · Urban Mobility · GBFS · MDS · Smart Cities · Transit
 
-## Scope
+## Lime on APIs.io
 
-- **Type:** Index
-- **Position:** Provider
-- **Access:** 3rd-Party
+Everything profiled for Lime is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/lime/](https://apis.io/providers/lime/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (6)
 
-- Shared Mobility
-- Micromobility
-- Electric Scooters
-- Electric Bikes
-- E-Bikes
-- E-Scooters
-- Transportation
-- Urban Mobility
-- GBFS
-- MDS
-- Smart Cities
-- Transit
+- [Lime Free Bike Status API](https://apis.io/apis/lime/lime-free-bike-status-api/) — The Free Bike Status API from Lime — 1 operation(s) for free bike status.
+- [Lime Gbfs.json API](https://apis.io/apis/lime/lime-gbfs-json-api/) — The Gbfs.json API from Lime — 1 operation(s) for gbfs.json.
+- [Lime Station Information API](https://apis.io/apis/lime/lime-station-information-api/) — The Station Information API from Lime — 1 operation(s) for station information.
+- [Lime Station Status API](https://apis.io/apis/lime/lime-station-status-api/) — The Station Status API from Lime — 1 operation(s) for station status.
+- [Lime System Information API](https://apis.io/apis/lime/lime-system-information-api/) — The System Information API from Lime — 1 operation(s) for system information.
+- [Lime Vehicle Types API](https://apis.io/apis/lime/lime-vehicle-types-api/) — The Vehicle Types API from Lime — 1 operation(s) for vehicle types.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-05-25
-- **Modified:** 2026-05-25
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Lime GBFS Public Feed
+Which operations an agent can call, which act, and which need a human in the loop.
 
-Public GBFS 2.2 feed exposing the real-time location, vehicle type, battery level, and rental URLs for Lime's free-floating e-scooters and e-bikes per operating city. Each city system has its own auto-discovery endpoint at /api/partners/v2/gbfs/{city}/gbfs.json, which lists the sub-feeds — system_information, station_information, station_status, free_bike_status, and vehicle_types. Use is governed by the Lime Public GBFS Terms. 46+ city systems are registered in the MobilityData GBFS index, including Paris, London, Berlin, Hamburg, Rome, Madrid, Vienna, Tel Aviv, Calgary, Ottawa, Vancouver, Atlanta, Arlington, and others.
+- [Lime Agentic Access](https://apis.io/agentic-access/lime/lime-agentic-access/)
 
-- **Human URL:** [https://www.li.me/legal/public-gbfs-terms](https://www.li.me/legal/public-gbfs-terms)
+#### Collections (7)
 
-#### Tags
+Postman and Open Collection request collections.
 
-- GBFS
-- Shared Mobility
-- Micromobility
-- Real Time
+- [Lime GBFS Public Feed Free Bike Status API](https://apis.io/collections/lime/open-lime-free-bike-status-api/)
+- [Lime GBFS Public Feed](https://apis.io/collections/lime/open-lime-gbfs/)
+- [Lime GBFS Public Feed Free Bike Status Gbfs.json API](https://apis.io/collections/lime/open-lime-gbfs-json-api/)
+- [Lime GBFS Public Feed Free Bike Status Station Information API](https://apis.io/collections/lime/open-lime-station-information-api/)
+- [Lime GBFS Public Feed Free Bike Status Station Status API](https://apis.io/collections/lime/open-lime-station-status-api/)
+- [Lime GBFS Public Feed Free Bike Status System Information API](https://apis.io/collections/lime/open-lime-system-information-api/)
+- [Lime GBFS Public Feed Free Bike Status Vehicle Types API](https://apis.io/collections/lime/open-lime-vehicle-types-api/)
 
-#### Properties
+#### Security (2)
 
-- [Documentation](https://www.li.me/legal/public-gbfs-terms)
-- [Documentation](https://github.com/MobilityData/gbfs/blob/master/gbfs.md)
-- [OpenAPI](openapi/lime-gbfs-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/lime-gbfs.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/lime-gbfs.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Discovery](https://data.lime.bike/api/partners/v2/gbfs/paris/gbfs.json)
+Authentication, trust centre, and vulnerability disclosure.
 
-## Common Properties
+- [Lime Domain Security](https://apis.io/security/lime/lime-domain-security/)
+- [Lime Vulnerability Disclosure](https://apis.io/security/lime/lime-vulnerability-disclosure/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.li.me)
-- [About](https://www.li.me/about)
-- [Newsroom](https://www.li.me/newsroom)
-- [Careers](https://www.li.me/careers)
-- [Contact](https://www.li.me/contact-us)
 - [Support](https://help.li.me)
-- [Terms of Service](https://www.li.me/legal/user-agreement)
-- [Privacy Policy](https://www.li.me/legal/privacy-policy)
-- [G B F S Terms](https://www.li.me/legal/public-gbfs-terms)
-- [Sustainability](https://www.li.me/sustainability)
-- [Safety](https://www.li.me/safety)
-- [GitHub Organization](https://github.com/limebike)
-- [Data Sharing](https://github.com/limebike/data-sharing)
-- [LinkedIn](https://www.linkedin.com/company/limebike)
-- [Twitter](https://twitter.com/limebike)
-- [Instagram](https://www.instagram.com/li.me)
+- [Blog](https://www.li.me/blog)
+- [Terms of service](https://www.li.me/legal/user-agreement)
+- [Privacy policy](https://www.li.me/legal/privacy-policy)
+- [GitHub](https://github.com/limebike)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 32.7** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 58.0 |
+| Contract quality | 44.7 |
+| Contract governance | 0.0 |
+| Operational transparency | 2.6 |
+| Developer ergonomics | 16.7 |
+| Access clarity | 57.1 |
+
+**Agent readiness 17.1** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | na |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 19.6** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/lime/](https://apis.io/providers/lime/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Lime: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/lime/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
